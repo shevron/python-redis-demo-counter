@@ -17,10 +17,10 @@ def read(name: str):
     value = backend.get(name)
     if value is None:
         value = 0
-    return str(int(value))
+    return str(int(value)) + "\n"
 
 
 @app.post('/{name}', response_class=PlainTextResponse)
 def read_item(name: str):
     value = backend.incr(name)
-    return str(value)
+    return str(value) + "\n"
